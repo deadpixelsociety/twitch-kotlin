@@ -19,7 +19,7 @@ data class TwitchConfig(
         /**
          * The default root API url: https://api.twitch.tv/kraken
          */
-        const val DEFAULT_ROOT_URL = "https://api.twitch.tv/kraken"
+        const val DEFAULT_ROOT_URL = "https://api.twitch.tv/kraken/"
         /**
          * The default API version: 5
          */
