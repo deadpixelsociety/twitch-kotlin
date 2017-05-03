@@ -2,6 +2,7 @@ package com.thedeadpixelsociety.twitch
 
 import com.thedeadpixelsociety.twitch.api.Endpoint
 import com.thedeadpixelsociety.twitch.api.bits.Bits
+import com.thedeadpixelsociety.twitch.api.channels.Channels
 import com.thedeadpixelsociety.twitch.api.feed.Feed
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -17,7 +18,7 @@ open class TwitchClient(val config: Configuration, val credentials: Credentials)
         const val HEADER_AUTHORIZATION = "Authorization"
 
         fun createDefault(credentials: Credentials): TwitchClient {
-            return create(Configuration(), credentials, Bits(), Feed())
+            return create(Configuration(), credentials, Bits(), Feed(), Channels())
         }
 
         fun create(config: Configuration, credentials: Credentials, vararg endpoints: Endpoint): TwitchClient {
