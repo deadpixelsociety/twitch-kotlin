@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface BitsService {
     @GET("bits/actions")
-    fun cheermotes(@Query("channel_id") channelId: String? = null): Call<BitsResponse>
+    fun cheermotes(@Query("channel_id") channelId: String? = null): Call<CheermotesResponse>
 }

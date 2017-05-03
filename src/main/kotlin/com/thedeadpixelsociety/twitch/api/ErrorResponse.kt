@@ -3,7 +3,7 @@ package com.thedeadpixelsociety.twitch.api
 /**
  * Defines a Twitch error message.
  */
-data class TwitchError(
+data class ErrorResponse(
     /**
      * The error message, if any.
      */

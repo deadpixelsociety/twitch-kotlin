@@ -5,15 +5,15 @@ package com.thedeadpixelsociety.twitch
  * @param rootUrl The root API URL. Defaults to [DEFAULT_ROOT_URL].
  * @param version The API version number. Defaults to [DEFAULT_VERSION].
  */
-data class TwitchConfig(
+data class Configuration(
     /**
      * The root API URL.
      */
-    val rootUrl: String = TwitchConfig.DEFAULT_ROOT_URL,
+    val rootUrl: String = Configuration.DEFAULT_ROOT_URL,
     /**
      * The API version number.
      */
-    val version: Int = TwitchConfig.DEFAULT_VERSION
+    val version: Int = Configuration.DEFAULT_VERSION
 ) {
     companion object {
         /**

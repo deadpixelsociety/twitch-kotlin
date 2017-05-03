@@ -7,7 +7,25 @@ import com.google.gson.GsonBuilder
  * Helper object for working with JSON.
  */
 object Json {
-    val gson: Gson by lazy { GsonBuilder().create() }
+    private val gson: Gson by lazy { GsonBuilder().create() }
+
+    /**
+     * Decodes the specified JSON string into a concrete object.
+     * @param T The object type.
+     * @param json The JSON string.
+     * @param targetClass The target class.
+     * @return The created object, if possible; otherwise, null.
+     */
+    fun <T> decode(json: String?, targetClass: Class<T>): T? {
+        try {
+            if (json.isNullOrEmpty()) return null
+            return gson.fromJson(json, targetClass)
+        } catch (ex: Exception) {
+            // TODO: Logging
+            ex.printStackTrace()
+            return null
+        }
+    }
 
     /**
      * Decodes the specified JSON string into a concrete object.
@@ -15,15 +33,7 @@ object Json {
      * @param json The JSON string.
      * @return The created object, if possible; otherwise, null.
      */
-    inline fun <reified T> decode(json: String?): T? {
-        try {
-            if (json.isNullOrEmpty()) return null
-            return gson.fromJson(json, T::class.java)
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-            return null
-        }
-    }
+    inline fun <reified T> decode(json: String?): T? = decode(json, T::class.java)
 
     /**
      * Encodes the specified object as a JSON string.
@@ -34,6 +44,7 @@ object Json {
         try {
             return gson.toJson(target)
         } catch (ex: Exception) {
+            // TODO: Logging
             ex.printStackTrace()
             return null
         }

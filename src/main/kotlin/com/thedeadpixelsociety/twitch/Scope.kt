@@ -3,7 +3,7 @@ package com.thedeadpixelsociety.twitch
 /**
  * Enumerates the available Twitch API scopes. See https://dev.twitch.tv/docs/v5/guides/authentication/ for more info.
  */
-enum class TwitchScope(val scopeName: String) {
+enum class Scope(val scopeName: String) {
     /**
      * Read whether a user is subscribed to your channel.
      */
@@ -79,10 +79,10 @@ enum class TwitchScope(val scopeName: String) {
 
     companion object {
         /**
-         * Returns the [TwitchScope] that matches the specified scope name, if any.
+         * Returns the [Scope] that matches the specified scope name, if any.
          * @param scopeName The scope name.
-         * @return The matching [TwitchScope], if any; otherwise, null.
+         * @return The matching [Scope], if any; otherwise, null.
          */
-        fun byScopeName(scopeName: String) = TwitchScope.values().firstOrNull { it.scopeName == scopeName }
+        fun byScopeName(scopeName: String) = Scope.values().firstOrNull { it.scopeName == scopeName }
     }
 }
